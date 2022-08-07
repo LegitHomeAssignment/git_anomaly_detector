@@ -2,19 +2,15 @@
 
 this guide will help you to detect and notify suspicious behavior in your integrated
 GitHub organization.
-
-In order to run the service please make sure to have python3 installed and virtualenv (pip install virtualenv).
-once you activate the virtual env, make sure to change dir to the project directory and use pip install -r requirements.txt in order to install all relevant packages.
-
 The server will run different anomalies to check whether there is a suspicious behavior inside your github repository and will print the event once one of the anomalies were triggered.
 
 
 ## Quick Installation
-1. Make sure you have python3 installed
-2. Make sure have virtual env installed (If you don't use pip install virtualenv)
-3. Clone the repository to your local environment and change directory to it
-4. Activate your virtual environment
-5. Install all the packages inside requirements.txt using pip install -r requirements.txt
+2. Make sure you have python3 installed
+3. Make sure have virtual env installed (If you don't use pip install virtualenv)
+4. Clone the repository to your local environment and change directory to it
+5. Activate your virtual environment
+6. Install all the packages inside requirements.txt using pip install -r requirements.txt
 
 ## Debugging
 1. Run python main.py (this will run by default on localhost (127.0.0.1) and port 9999)
