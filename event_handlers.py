@@ -39,6 +39,11 @@ class PushBetweenTwoToFour(BaseEventHandler):
         if current_hour > 14 and current_hour < 16:
             await self.notify(event)
 
+    async def notify(self, event: dict):
+        username = event['pusher']['name']
+        print(f'User {username} pushed between 14 to 16')
+        await super().notify(event)
+
 
 class NewTeamStartsWithHackerEventHandler(BaseEventHandler):
 
@@ -51,6 +56,11 @@ class NewTeamStartsWithHackerEventHandler(BaseEventHandler):
             team_name = event['team']['name']
             if team_name.startswith('hacker'):
                 await self.notify(event)
+
+    async def notify(self, event: dict):
+        team_name = event['team']['name']
+        print(f'Team {team_name} has hacker prefix')
+        await super().notify(event)
 
 
 class RepositoryDeletedLessThenTenMinutesBeforeCreationEventHandler(BaseEventHandler):
@@ -67,3 +77,8 @@ class RepositoryDeletedLessThenTenMinutesBeforeCreationEventHandler(BaseEventHan
             minutes = delta.total_seconds() / 60
             if minutes <= 10:
                 await self.notify(event)
+
+    async def notify(self, event: dict):
+        repository_name = event['repository']['name']
+        print(f'Repository {repository_name} was deleted in less than 10 minutes.')
+        await super().notify(event)

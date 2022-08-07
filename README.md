@@ -19,3 +19,4 @@ If you want to add additional anomalies, what you need to do is:
 - go to event_handlers and add a new class that is inheriting from BaseEventHandler.
 - Inside your class constructor make sure to write the event type you are interested in (push,team,repository etc). if the event_type does not exist inside EventTypes enum please add it.
 - If the action type you want to subscribe (create,delete, etc..) to is not listed inside ActionTypes enum, please add it there.
+- Override notify method, in case you don't want to just the print the event to the screen, but do something else.
