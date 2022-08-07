@@ -1,5 +1,4 @@
-# The Legit Home Assignment
-# git_anomaly_detector
+# Git Anomaly Detector - The Legit Security Home Assignment
 
 this guide will help you to detect and notify suspicious behavior in your integrated
 GitHub organization.
