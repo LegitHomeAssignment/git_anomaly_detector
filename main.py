@@ -22,7 +22,10 @@ async def events(request: Request):
     if not handlers:
         logging.getLogger().warning('No handlers were defined for event of type {}'.format(event_type))
     for handler in handlers:
-        await handler().run(data)
+        try:
+            await handler().run(data)
+        except Exception as e:
+            logging.getLogger().error(f'Failed to execute handler {handler.__name__}. error is {e}')
 
 
 @app.on_event("startup")
