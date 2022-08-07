@@ -1,11 +1,12 @@
 import logging
+
 import uvicorn
 from fastapi import FastAPI, Request
 
 from event_handlers import BaseEventHandler
 from registry import Registry
+
 app = FastAPI()
-NO_HANDLERS_DEFINED_FOR_EVENT_TYPE_WARN_MSG = 'No handlers were defined for event of type {}'
 
 
 @app.get("/")
@@ -19,7 +20,7 @@ async def events(request: Request):
     event_type = request.headers['X-GitHub-Event']
     handlers = Registry.get_handlers(event_type)
     if not handlers:
-        logging.getLogger().warning(NO_HANDLERS_DEFINED_FOR_EVENT_TYPE_WARN_MSG.format(event_type))
+        logging.getLogger().warning('No handlers were defined for event of type {}'.format(event_type))
     for handler in handlers:
         await handler().run(data)
 
