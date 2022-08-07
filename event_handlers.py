@@ -33,9 +33,9 @@ class PushBetweenTwoToFour(BaseEventHandler):
         super(PushBetweenTwoToFour, self).__init__(EventTypes.PUSH.value)
 
     async def run(self, event: dict):
-        now = datetime.datetime.now()
+        # According to utctime
+        now = datetime.datetime.utcnow()
         current_hour = now.hour
-        # utc time?
         if current_hour > 14 and current_hour < 16:
             await self.notify(event)
 

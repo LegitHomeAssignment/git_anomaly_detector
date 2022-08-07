@@ -1,11 +1,9 @@
 import logging
-
 import uvicorn
 from fastapi import FastAPI, Request
 
 from event_handlers import BaseEventHandler
 from registry import Registry
-
 app = FastAPI()
 NO_HANDLERS_DEFINED_FOR_EVENT_TYPE_WARN_MSG = 'No handlers were defined for event of type {}'
 

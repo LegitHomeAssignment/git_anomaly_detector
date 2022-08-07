@@ -1,4 +1,4 @@
-class Registry():
+class Registry:
     handlers = {}
 
     @classmethod

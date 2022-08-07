@@ -7,7 +7,7 @@ The server will run different anomalies to check whether there is a suspicious b
 
 ## Quick Installation
 2. Make sure you have python3 installed
-3. Make sure have virtual env installed (If you don't use pip install virtualenv)
+3. Make sure have virtual env installed (If you don't have, use pip install virtualenv)
 4. Clone the repository to your local environment and change directory to it
 5. Activate your virtual environment
 6. Install all the packages inside requirements.txt using pip install -r requirements.txt
@@ -19,8 +19,7 @@ The server will run different anomalies to check whether there is a suspicious b
 4. Choose whether you want to listen to all  events or just specific type of events
 
 ## Running the server in production
-1. Change directory to the project directory.
-2. Run in shell : uvicorn main:app --host <host_ip> --port <port_number> for example: uvicorn main:app --host 0.0.0.0 --port 9999
+Run in shell : uvicorn main:app --host <host_ip> --port <port_number> for example: uvicorn main:app --host 0.0.0.0 --port 9999
 
 ## How to expand the current anomalies?
 - go to event_handlers and add a new class that is inheriting from BaseEventHandler.
