@@ -7,12 +7,26 @@ In order to run the service please make sure to have python3 installed and virtu
 once you activate the virtual env, make sure to change dir to the project directory and use pip install -r requirements.txt in order to install all relevant packages.
 
 The server will run different anomalies to check whether there is a suspicious behavior inside your github repository and will print the event once one of the anomalies were triggered.
-Once you installed all the packages from the requirements.txt file, please run the following command to run the server:
-uvicorn main:app --host <host_ip> --port <port_number>
-for example: uvicorn main:app --host 0.0.0.0 --port 9999.
 
-If you want to add additional anomalies, what you need to do is:
 
+## Quick Installation
+1. Make sure you have python3 installed
+2. Make sure have virtual env installed (If you don't use pip install virtualenv)
+3. Clone the repository to your local environment and change directory to it
+4. Activate your virtual environment
+5. Install all the packages inside requirements.txt using pip install -r requirements.txt
+
+## Debugging
+1. Run python main.py (this will run by default on localhost (127.0.0.1) and port 9999)
+2. Install ngrok and run it using: ngrok http 9999 (or any other port you chooses, as long as the app is listening to it)
+3. Once you get a url, go to the relevant git repository and add the webhook with the url received from ngrok.
+4. Choose whether you want to listen to all  events or just specific type of events
+
+## Running the server in production
+1. Change directory to the project directory.
+2. Run in shell : uvicorn main:app --host <host_ip> --port <port_number> for example: uvicorn main:app --host 0.0.0.0 --port 9999
+
+## How to expand the current anomalies?
 - go to event_handlers and add a new class that is inheriting from BaseEventHandler.
 - Inside your class constructor make sure to write the event type you are interested in (push,team,repository etc). if the event_type does not exist inside EventTypes enum please add it.
 - If the action type you want to subscribe (create,delete, etc..) to is not listed inside ActionTypes enum, please add it there.

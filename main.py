@@ -34,5 +34,5 @@ async def startup_event():
             Registry.register(event_type, handler_cls)
 
 
-# if __name__ == '__main__':
-#     uvicorn.run('main:app', port=9999, reload=True)
+if __name__ == '__main__':
+    uvicorn.run('main:app', port=9999, reload=True)
